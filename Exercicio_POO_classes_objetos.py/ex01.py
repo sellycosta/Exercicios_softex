@@ -1,19 +1,13 @@
 #1- Crie uma classe chamada Pessoa que tenha os atributos nome e idade. Em seguida, crie dois objetos dessa classe e imprima os valores de seus atributos.
 
 class Pessoa:
-    nome= "Fabiana"   
-    idade= 35
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
 
-terreste= Pessoa()
-print(Pessoa)
+pessoa1 = Pessoa("João", 25)
+pessoa2 = Pessoa("Maria", 30)
 
-#2- Expanda a classe Pessoa para incluir um método apresentar() que imprima uma frase como:"Olá, meu nome é João e tenho 25 anos.". Teste o método chamando-o a partir de um objeto.
-
-class Pessoa:
-    def __init__(self, nome):
-        self.nome = Fabiana
-    def apresentar(self):
-        print(f"Olá, meu nome é {self.nome}, tenho 35 anos.") 
-    pessoa1= Pessoa ("Fabiana")
-    pessoa1.apresentar()
+print("Nome:", pessoa1.nome, "Idade:", pessoa1.idade)
+print("Nome:", pessoa2.nome, "Idade:", pessoa2.idade)
 
