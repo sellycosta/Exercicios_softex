@@ -1,0 +1,25 @@
+#Crie as classes Aluno e Onibus. Crie um método em Aluno que use a classe Onibus.
+
+class Onibus:
+    def __init__(self, numero, motorista):
+        self.numero = numero
+        self.motorista = motorista
+
+    def transportar(self):
+        print(f"Ônibus {self.numero}, dirigido por {self.motorista}, está em movimento!")
+
+
+class Aluno:
+    def __init__(self, nome, escola):
+        self.nome = nome
+        self.escola = escola
+
+    def ir_para_escola(self, onibus):
+        print(f"{self.nome} está indo para a escola {self.escola}.")
+        onibus.transportar()
+
+
+onibus1 = Onibus(32, "Seu João")
+aluno1 = Aluno("Pedro", "Escola Municipal Sol Nascente")
+
+aluno1.ir_para_escola(onibus1)

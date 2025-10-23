@@ -1,0 +1,41 @@
+#Crie as classes Time e Jogador. Um Jogador tem nome e posição como atributos, enquanto Time agrega jogadores em uma lista.
+
+class Jogador:
+    def __init__(self, nome, posicao):
+        self.nome = nome
+        self.posicao = posicao
+
+    def mostrar_dados(self):
+        print(f"Jogador: {self.nome} - Posição: {self.posicao}")
+
+
+class Time:
+    def __init__(self, nome):
+        self.nome = nome
+        self.jogadores = []  # lista de jogadores (agregação)
+
+    def adicionar_jogador(self, jogador):
+        self.jogadores.append(jogador)
+
+    def listar_jogadores(self):
+        print(f"\nTime: {self.nome}")
+        print("Jogadores:")
+        for j in self.jogadores:
+            j.mostrar_dados()
+
+
+#Criando jogadores separadamente
+j1 = Jogador("Ronaldo", "Atacante")
+j2 = Jogador("Carlos", "Zagueiro")
+j3 = Jogador("João", "Goleiro")
+
+#Criando um time
+time1 = Time("Real Futebol Clube")
+
+#Agregando jogadores já criados
+time1.adicionar_jogador(j1)
+time1.adicionar_jogador(j2)
+time1.adicionar_jogador(j3)
+
+#Mostrando os jogadores do time
+time1.listar_jogadores()

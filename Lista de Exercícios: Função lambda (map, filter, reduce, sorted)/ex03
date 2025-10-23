@@ -1,0 +1,18 @@
+#Soma dos números (reduce + lambda)
+#Usando reduce, some todos os números da lista [1, 2, 3, 4, 5].
+
+#(((1 + 2) + 3) + 4) + 5
+#from functools import reduce
+#lambda x, y: x + y
+
+#Primeiro o reduce soma 1 + 2 → 3
+#Depois soma 3 + 3 → 6
+#Depois 6 + 4 → 10
+#Depois 10 + 5 → 15
+#Resultado final: 15
+
+from functools import reduce
+
+numeros = [1, 2, 3, 4, 5]
+soma = reduce(lambda x, y: x + y, numeros)
+print(soma)

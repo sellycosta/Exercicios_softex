@@ -1,0 +1,30 @@
+#Interface múltipla
+#Crie duas interfaces: Ligavel (com o método ligar()) e Desligavel (com o método desligar()). Crie uma classe Computador que implemente ambas. Mostre seu uso.
+
+from abc import ABC, abstractmethod
+
+#Definindo a interface Ligavel
+class Ligavel(ABC):
+    @abstractmethod
+    def ligar(self):
+        pass
+
+#Definindo a interface Desligavel
+class Desligavel(ABC):
+    @abstractmethod
+    def desligar(self):
+        pass
+
+#Classe Computador que implementa as interfaces Ligavel e Desligavel
+class Computador(Ligavel, Desligavel):
+    def ligar(self):
+        return "O computador está ligado."
+
+    def desligar(self):
+        return "O computador está desligado."
+
+#Criando uma instância da classe Computador
+meu_computador = Computador()
+
+print(meu_computador.ligar()) 
+print(meu_computador.desligar())

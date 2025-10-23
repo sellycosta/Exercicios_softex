@@ -1,0 +1,29 @@
+#Criando uma interface
+#Crie uma interface chamada Pagamento com um método abstrato processar(valor). Depois, crie duas classes (CartaoCredito e Boleto) que implementem a interface. Mostre como chamar processar() para cada uma.
+
+from abc import ABC, abstractmethod
+
+#Definindo a interface Pagamento
+class Pagamento(ABC):
+    @abstractmethod
+    def processar(self, valor):
+        pass
+
+#Classe CartaoCredito que implementa a interface Pagamento
+class CartaoCredito(Pagamento):
+    def processar(self, valor):
+        return f"Pagamento de R${valor:.2f} processado com Cartão de Crédito."
+
+#Classe Boleto que implementa a interface Pagamento
+class Boleto(Pagamento):
+    def processar(self, valor):
+        return f"Pagamento de R${valor:.2f} processado com Boleto."
+
+#Criando instâncias das classes
+pagamento_cartao = CartaoCredito()
+pagamento_boleto = Boleto()
+
+#Chamando o método processar() para cada uma
+valor_pagamento = 150.75
+print(pagamento_cartao.processar(valor_pagamento)) 
+print(pagamento_boleto.processar(valor_pagamento))

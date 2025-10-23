@@ -1,0 +1,16 @@
+#Proibição de instanciamento
+#Tente instanciar diretamente a classe Animal da questão anterior e explique o erro gerado pelo Python.
+
+from abc import ABC, abstractmethod
+
+#Definindo a classe abstrata Animal
+class Animal(ABC):
+    @abstractmethod
+    def falar(self):
+        pass
+
+#Tentando instanciar a classe Animal
+try:
+    animal = Animal()  # Essa linha tem que gerar um erro
+except TypeError as e:
+    print("Erro:", e)

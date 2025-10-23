@@ -1,0 +1,21 @@
+#Crie as classes Pessoa e Livro e demonstre uma relação de associação entre eles.
+
+class Livro:
+    def __init__(self, titulo, autor):
+        self.titulo = titulo
+        self.autor = autor
+
+class Pessoa:
+    def __init__(self, nome):
+        self.nome = nome
+        self.livro = None  # associação com a classe Livro
+
+    def pegar_livro(self, livro):
+        self.livro = livro
+
+livro1 = Livro("O Pequeno Príncipe", "Antoine de Saint-Exupéry")
+pessoa1 = Pessoa("Maria")
+
+pessoa1.pegar_livro(livro1)
+
+print(f"{pessoa1.nome} está lendo '{pessoa1.livro.titulo}' do autor {pessoa1.livro.autor}.")

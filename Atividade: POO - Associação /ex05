@@ -1,0 +1,34 @@
+#Crie a classe Carro que possui um Motor. O Motor deve ser criado dentro do Carro. Se o Carro deixar de existir, o Motor também deixa. Mostre isso criando e depois apagando o objeto.
+
+class Motor:
+    def __init__(self, potencia):
+        self.potencia = potencia
+        print(f"Motor de {self.potencia} cavalos criado.")
+
+    def ligar(self):
+        print("Motor ligado!")
+
+    def __del__(self):
+        print("Motor destruído.")
+
+class Carro:
+    def __init__(self, modelo, potencia_motor):
+        self.modelo = modelo
+        #Criando o motor dentro do carro (composição)
+        self.motor = Motor(potencia_motor)
+        print(f"Carro {self.modelo} criado.")
+
+    def ligar_carro(self):
+        print(f"{self.modelo} está ligando...")
+        self.motor.ligar()
+
+    def __del__(self):
+        print(f"Carro {self.modelo} destruído.")
+
+
+#Criando o objeto carro
+meu_carro = Carro("Fusca", 50)
+meu_carro.ligar_carro()
+
+#Apagando o carro
+del meu_carro

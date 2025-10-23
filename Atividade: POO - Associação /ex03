@@ -1,0 +1,40 @@
+#Crie uma classe Funcionario e Departamento que contém uma lista de Funcionarios.Departamento deve agregar funcionários já criados.
+
+class Funcionario:
+    def __init__(self, nome, cargo):
+        self.nome = nome
+        self.cargo = cargo
+
+    def mostrar_dados(self):
+        print(f"Funcionário: {self.nome} - Cargo: {self.cargo}")
+
+
+class Departamento:
+    def __init__(self, nome):
+        self.nome = nome
+        self.funcionarios = []  #lista de funcionários (agregação)
+
+    def adicionar_funcionario(self, funcionario):
+        self.funcionarios.append(funcionario)
+
+    def listar_funcionarios(self):
+        print(f"\nDepartamento: {self.nome}")
+        print("Funcionários:")
+        for f in self.funcionarios:
+            f.mostrar_dados()
+
+
+# Criando funcionários separadamente
+f1 = Funcionario("Ana", "Analista")
+f2 = Funcionario("Carlos", "Programador")
+f3 = Funcionario("Beatriz", "Designer")
+
+# Criando um departamento
+dep_ti = Departamento("Tecnologia da Informação")
+
+#Agregando funcionários já criados
+dep_ti.adicionar_funcionario(f1)
+dep_ti.adicionar_funcionario(f2)
+dep_ti.adicionar_funcionario(f3)
+
+dep_ti.listar_funcionarios()

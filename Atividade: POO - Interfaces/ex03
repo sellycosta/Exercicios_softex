@@ -1,0 +1,29 @@
+#Interface em herança múltipla
+#Crie uma interface Imprimivel com o método imprimir(). Crie outra interface Exportavel com o método exportar(). Implemente uma classe Relatorio que herde de ambas e implemente os métodos.
+
+from abc import ABC, abstractmethod
+
+# Definindo a interface Imprimivel
+class Imprimivel(ABC):
+    @abstractmethod
+    def imprimir(self):
+        pass
+
+#Definindo a interface Exportavel
+class Exportavel(ABC):
+    @abstractmethod
+    def exportar(self):
+        pass
+
+#Classe Relatorio que implementa as interfaces Imprimivel e Exportavel
+class Relatorio(Imprimivel, Exportavel):
+    def imprimir(self):
+        return "Relatório impresso com sucesso."
+
+    def exportar(self):
+        return "Relatório exportado com sucesso."
+
+meu_relatorio = Relatorio()
+
+print(meu_relatorio.imprimir())  
+print(meu_relatorio.exportar()) 
